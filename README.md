@@ -1,8 +1,11 @@
 # 🧠 DecodeLabs Internship — AI/ML Projects
 
 **Intern:** Asjal Abdullah Butt
+
 **Program:** DecodeLabs Internship 2026
+
 **Track:** Artificial Intelligence & Machine Learning
+
 **Institution:** FAST-NUCES Lahore — BS Computer Science (2026)
 
 ---
