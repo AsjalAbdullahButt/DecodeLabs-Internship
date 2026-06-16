@@ -1,0 +1,16 @@
+job_role,skills
+Data Scientist,python sql machine_learning data_analysis statistics pandas numpy scikit_learn tensorflow deep_learning
+Backend Developer,python java sql apis rest django flask databases postgresql git docker
+Frontend Developer,javascript html css react vuejs typescript ui_ux figma git responsive_design
+DevOps Engineer,aws docker kubernetes ci_cd linux bash terraform cloud_computing git jenkins
+Full Stack Developer,javascript python html css react django databases rest apis git
+Machine Learning Engineer,python tensorflow pytorch deep_learning neural_networks nlp computer_vision scikit_learn numpy pandas
+Data Engineer,python sql spark hadoop etl data_pipelines cloud_computing airflow kafka postgresql
+Cloud Architect,aws azure gcp cloud_computing kubernetes terraform docker networking security devops
+Cybersecurity Analyst,networking linux security ethical_hacking firewalls cryptography penetration_testing siem python
+Mobile Developer,swift kotlin react_native flutter android ios xcode git firebase
+AI Research Scientist,python deep_learning neural_networks research mathematics statistics nlp computer_vision tensorflow pytorch
+Database Administrator,sql postgresql mysql oracle mongodb database_design indexing backup_recovery performance_tuning
+Systems Engineer,linux c cpp networking embedded_systems os_internals bash assembly hardware drivers
+Blockchain Developer,solidity ethereum web3 cryptography smart_contracts python javascript decentralized_apps
+QA Engineer,testing automation selenium python java junit ci_cd bug_tracking agile git
