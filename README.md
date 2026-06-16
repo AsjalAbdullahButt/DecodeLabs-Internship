@@ -32,6 +32,16 @@ A complete, modular ML pipeline for classifying the Iris dataset using K-Nearest
 
 ---
 
+### 🧠 Project 3 — Tech Stack Recommender
+
+A career path recommender that maps a user's skill set to the most suitable tech roles using TF-IDF vectorization and cosine similarity. Covers the full pipeline — skill ingestion with cold-start handling, TF-IDF corpus fitting, cosine similarity scoring across 15 job role profiles, top-N ranking, and session logging. Ships with both a CLI and a Streamlit web UI that supports light and dark mode.
+
+**Stack:** Python · scikit-learn · Streamlit · pandas
+
+📄 **[View Full Documentation →](https://github.com/AsjalAbdullahButt/DecodeLabs-Internship/blob/main/Project%203/Tech-Stack-Recommender/README.md)**
+
+---
+
 ## 🛠️ Tech Stack
 
 | Area | Tools |
@@ -40,6 +50,7 @@ A complete, modular ML pipeline for classifying the Iris dataset using K-Nearest
 | ML | scikit-learn |
 | Data | pandas, numpy |
 | Visualization | matplotlib, seaborn |
+| UI | Streamlit |
 | Version Control | Git / GitHub |
 
 ---
