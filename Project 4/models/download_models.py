@@ -25,11 +25,16 @@ MODELS_DIR = BASE_DIR / "models"
 SAMPLE_DIR = BASE_DIR / "sample_inputs"
 
 # Source URLs as specified by the project brief.
-PROTOTXT_URL = "https://raw.githubusercontent.com/chuanqi305/MobileNet-SSD/master/deploy.prototxt"
-CAFFEMODEL_URL = "https://drive.google.com/uc?export=download&id=0B3gersZ2cHIxRm5PMWRoTkdHdHc"
-SAMPLE_IMAGE_URL = (
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg"
-)
+# NOTE: the original spec's Google Drive caffemodel link now requires sign-in
+# (returns an HTML page, not the weights), and the Wikimedia thumbnail URL is no
+# longer served. These GitHub-hosted mirrors provide the same MobileNet-SSD
+# prototxt/caffemodel pair and a reliable sample image.
+PROTOTXT_URL = "https://github.com/djmv/MobilNet_SSD_opencv/raw/master/MobileNetSSD_deploy.prototxt"
+CAFFEMODEL_URL = "https://github.com/djmv/MobilNet_SSD_opencv/raw/master/MobileNetSSD_deploy.caffemodel"
+SAMPLE_IMAGE_URL = "https://raw.githubusercontent.com/opencv/opencv/master/samples/data/messi5.jpg"
+
+# Some hosts (e.g. Wikimedia) reject requests without a browser-like User-Agent.
+REQUEST_HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; Project4Downloader/1.0)"}
 
 # Destination paths.
 PROTOTXT_PATH = MODELS_DIR / "MobileNetSSD_deploy.prototxt"
@@ -57,7 +62,7 @@ def download_file(url, destination, description):
     print(f"[DOWNLOAD] {description} from {url}")
     try:
         # stream=True avoids loading the whole file into memory at once.
-        with requests.get(url, stream=True, timeout=60) as response:
+        with requests.get(url, stream=True, timeout=60, headers=REQUEST_HEADERS) as response:
             response.raise_for_status()
             total = int(response.headers.get("content-length", 0))
             downloaded = 0
