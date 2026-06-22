@@ -265,11 +265,11 @@ def main():
     col_left, col_right = st.columns(2)
     with col_left:
         st.subheader("Original")
-        st.image(pil_image, use_column_width=True)
+        st.image(pil_image, width="stretch")
     with col_right:
         st.subheader("Result")
         if annotated is not None:
-            st.image(bgr_to_rgb(annotated), use_column_width=True)
+            st.image(bgr_to_rgb(annotated), width="stretch")
         else:
             st.warning("No result to display.")
 

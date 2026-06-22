@@ -13,6 +13,8 @@ so that the load -> grayscale -> blur -> Otsu threshold -> deskew sequence lives
 in exactly one place.
 """
 
+import os
+import shutil
 from pathlib import Path
 
 import cv2
@@ -20,6 +22,36 @@ import numpy as np
 import pytesseract
 
 from core.preprocessor import load_image, preprocess_for_ocr
+
+
+def _configure_tesseract_cmd():
+    """
+    Point pytesseract at the Tesseract binary even when it is not on PATH.
+
+    pytesseract shells out to a `tesseract` executable. On Windows the installer
+    drops it under Program Files but does not always add it to PATH, so we probe
+    the common install locations and set ``tesseract_cmd`` to the first hit.
+    If `tesseract` is already resolvable on PATH we leave the default alone.
+    """
+    # Already on PATH? Nothing to do.
+    if shutil.which("tesseract"):
+        return
+
+    # Standard Windows install locations (system-wide and per-user).
+    candidate_paths = [
+        r"C:\Program Files\Tesseract-OCR\tesseract.exe",
+        r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe",
+        os.path.join(os.environ.get("LOCALAPPDATA", ""), "Tesseract-OCR", "tesseract.exe"),
+        os.path.join(os.environ.get("LOCALAPPDATA", ""), "Programs", "Tesseract-OCR", "tesseract.exe"),
+    ]
+    for candidate in candidate_paths:
+        if candidate and os.path.exists(candidate):
+            pytesseract.pytesseract.tesseract_cmd = candidate
+            return
+
+
+# Resolve the Tesseract binary at import time so every entry point benefits.
+_configure_tesseract_cmd()
 
 # Map friendly mode names to Tesseract Page-Segmentation-Mode flags. The UI
 # only ever exposes these four keys, and extract_text validates against them.
