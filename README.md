@@ -42,12 +42,23 @@ A career path recommender that maps a user's skill set to the most suitable tech
 
 ---
 
+### 🔍 Project 4 — Image & Text Recognition
+
+A computer vision project with **two independent recognition pipelines** behind a single Streamlit UI. **Path 1 (OCR)** uses pytesseract (Tesseract engine) to extract text after a deterministic pre-processing chain — grayscale → Gaussian blur → Otsu threshold → deskew — and reports per-word confidence. **Path 2 (Object Detection)** runs a pre-trained MobileNet-SSD model via OpenCV's DNN module, drawing labelled bounding boxes and keeping only detections at **≥ 80% confidence**. Ships with shared pre-processing utilities, a model-download script, and a full pytest suite (**12/12 passing**).
+
+**Stack:** Python · OpenCV · pytesseract · Streamlit · numpy · Pillow
+
+📄 **[View Full Documentation →](https://github.com/AsjalAbdullahButt/DecodeLabs-Internship/blob/main/Project%204/README.md)**
+
+---
+
 ## 🛠️ Tech Stack
 
 | Area | Tools |
 |---|---|
 | Language | Python 3.8+ |
 | ML | scikit-learn |
+| Computer Vision | OpenCV, pytesseract, MobileNet-SSD |
 | Data | pandas, numpy |
 | Visualization | matplotlib, seaborn |
 | UI | Streamlit |
